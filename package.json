@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js src/",
     "lint-examples": "eslint --ext .js examples/index.js",
-    "build": "cross-env NODE_ENV=production webpack -p --progress --colors; cp dist/vue-adminlte.min.js",
+    "build": "cross-env NODE_ENV=production webpack -p --progress --colors",
     "dev": "cross-env NODE_ENV=development webpack --progress --colors --watch",
     "prepublish": "npm run build"
   },
@@ -39,5 +39,14 @@
     "eslint-plugin-standard": "^2.1.1",
     "eslint-plugin-you-dont-need-lodash-underscore": "^5.0.4",
     "webpack": "^2.3.3"
+  },
+  "dependencies": {
+    "css-loader": "^0.28.3",
+    "eslint-plugin-vue": "^2.0.1",
+    "vue-hot-reload-api": "^2.1.0",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^12.1.1",
+    "vue-style-loader": "^3.0.1",
+    "vue-template-compiler": "^2.3.3"
   }
 }
