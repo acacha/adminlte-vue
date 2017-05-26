@@ -1,6 +1,6 @@
 {
   "name": "adminlte-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vue components for Bootstrap adminlte template",
   "main": "dist/acacha-adminlte-vue.js",
   "scripts": {
