@@ -6,7 +6,7 @@
 
 # Adminlte vue
 
-TODO
+Adminlte bootstrap template vue components
 
 # Installation
 
@@ -33,4 +33,3 @@ See also examples folder with full code examples
 -TODO
 
 # Resources
-
