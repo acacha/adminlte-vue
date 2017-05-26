@@ -13,16 +13,22 @@ Adminlte bootstrap template vue components
 ```bash
 npm install adminlte-vue --save
 ```
-
 Or you can use [unpkg](https://unpkg.com) in your html files:
 
 ```html
-<script src="https://unpkg.com/TODO/dist/acacha-forms.min.js"></script>
+<script src="https://unpkg.com/adminlte-vue/dist/acacha-adminlte-vue.min.js"></script>
 ```
 
 # Usage
 
-See also examples folder with full code examples
+```javascript
+import AdminlteVue from 'adminlte-vue'
+Vue.use(AdminlteVue)
+```
+
+For Laravel add the previous two lines to your *resorces/assets/js/app.js* file.
+
+See also examples folder with full code examples.
 
 # About AdminLTE
 
