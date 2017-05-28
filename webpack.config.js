@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const path = require('path')
 
 const version = require('./package.json').version
-var banner = '/**\n' + ' * Acacha adminlte-vue' + version + '\n' + ' * https://github.com/acacha/adminlte-vue\n' + ' * Released under the MIT License.\n' + ' */\n'
+var banner = '/**\n' + ' * Acacha adminlte-vue ' + version + '\n' + ' * https://github.com/acacha/adminlte-vue\n' + ' * Released under the MIT License.\n' + ' */\n'
 
 var isProd = (process.env.NODE_ENV === 'production')
 

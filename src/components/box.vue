@@ -2,7 +2,7 @@
     <div class="box box-solid" :class="[{'collapsed-box' : isCollapsed  }, 'box-' + color]">
         <div class="box-header with-border">
             <div class="box-title">
-                <slot name="title">Put your title here</slot>
+                <slot name="title">Put your title here using slot with name title</slot>
             </div>
             <div class="box-tools pull-right">
                 <slot name="box-tools">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="box-body">
-            <slot>Put your content here</slot>
+            <slot>Put your content here using default slot</slot>
         </div>
         <div class="overlay" v-if="isLoading">
             <i class="fa fa-refresh fa-spin"></i>
