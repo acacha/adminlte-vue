@@ -1,8 +1,9 @@
 import AdminlteVueAlert from './alert.vue'
-// import FormlyField from './box.vue'
+import AdminlteVueBox from './box.vue'
 
 export default function (Vue) {
   Vue.component('adminlte-vue-alert', AdminlteVueAlert)
+  Vue.component('adminlte-vue-box', AdminlteVueBox)
 
   // Vue.component('formly-field', (resolve) => {
   //   /**
