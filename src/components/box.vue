@@ -6,8 +6,8 @@
             </div>
             <div class="box-tools pull-right">
                 <slot name="box-tools">
-                    <button v-if="isRemovable" type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                     <button v-if="isCollapsable" type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa" :class="collapseIcon"></i></button>
+                    <button v-if="isRemovable" type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </slot>
             </div>
         </div>
