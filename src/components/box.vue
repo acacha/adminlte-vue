@@ -77,8 +77,11 @@
     watch: {
       collapsed: function () {
         this.isCollapsed= this.collapsed
+      },
+      loading: function () {
+        this.isLoading= this.loading
       }
-  },
+    },
     methods: {
       hasFooterSlot() {
         return !!this.$slots['footer']
