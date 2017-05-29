@@ -19,8 +19,12 @@ let AdminlteVue = {
 if (typeof window !== 'undefined' && window.Vue) {
   window.Vue.use(AdminlteVue)
   // expose AdminlteVue functions if auto installed
-  window.Vue.$adminlte = {todo, todo2
-  }
+  window.Vue.$adminlte = {todo, todo2}
 }
 
 export default AdminlteVue
+
+import Box from './components/box.vue'
+import Alert from './components/alert.vue'
+
+export { Box, Alert }

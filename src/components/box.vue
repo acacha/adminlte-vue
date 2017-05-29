@@ -74,6 +74,11 @@
         }
       }
     },
+    watch: {
+      collapsed: function () {
+        this.isCollapsed= this.collapsed
+      }
+  },
     methods: {
       hasFooterSlot() {
         return !!this.$slots['footer']
