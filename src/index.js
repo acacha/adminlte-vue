@@ -26,5 +26,6 @@ export default AdminlteVue
 
 import Box from './components/box.vue'
 import Alert from './components/alert.vue'
+import Modal from './components/modal.vue'
 
-export { Box, Alert }
+export { Box, Alert, Modal }
