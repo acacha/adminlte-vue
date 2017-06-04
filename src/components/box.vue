@@ -1,10 +1,10 @@
 <template>
     <div class="box" :class="[{'box-solid' : isSolid}, {'collapsed-box' : isCollapsed  }, 'box-' + color]">
-        <div class="box-header" :class="{'with-border' : headerHaveBorder}">
-            <div class="box-title" v-if="noTitle">
+        <div class="box-header" :class="{'with-border' : borderOnHeader}">
+            <div class="box-title" v-if="!noTitle">
                 <slot name="title">Put your title here using slot with name title</slot>
             </div>
-            <div class="box-tools pull-right">
+            <div class="box-tools pull-right" v-if="!noTitle">
                 <slot name="box-tools">
                     <button v-if="isCollapsable" type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa" :class="collapseIcon"></i></button>
                     <button v-if="isRemovable" type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -38,6 +38,10 @@
     computed: {
       collapseIcon: function () {
         return this.isCollapsed ? 'fa-plus' : 'fa-minus'
+      },
+      borderOnHeader: function() {
+        if (this.noTitle) return false;
+        return this.headerHaveBorder;
       }
     },
     props: {
