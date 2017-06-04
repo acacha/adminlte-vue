@@ -1,7 +1,7 @@
 <template>
     <div class="box" :class="[{'box-solid' : isSolid}, {'collapsed-box' : isCollapsed  }, 'box-' + color]">
         <div class="box-header" :class="{'with-border' : headerHaveBorder}">
-            <div class="box-title">
+            <div class="box-title" v-if="noTitle">
                 <slot name="title">Put your title here using slot with name title</slot>
             </div>
             <div class="box-tools pull-right">
@@ -72,6 +72,10 @@
           let valid = ['','primary','info', 'danger', 'warning', 'success','default']
           return valid.includes(value)
         }
+      },
+      noTitle: {
+        type: Boolean,
+        default: false
       }
     },
     watch: {
