@@ -5,7 +5,6 @@ import {todo, todo2} from './util'
 let AdminlteVue = {
   todo,
   // addType,
-  // addValidationMessage,
   install (Vue) {
     // install our components
     Components(Vue)
