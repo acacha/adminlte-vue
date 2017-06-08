@@ -57,15 +57,41 @@
       footer: {
         type: Boolean,
         default: true
+      },
+      show: {
+        type: Boolean,
+        default: false
+      }
+    },
+    watch: {
+      show: function (newValue) {
+        if(newValue) {
+          this.showDialog()
+        } else {
+          this.hideDialog()
+        }
       }
     },
     methods: {
       hasFooterSlot() {
         return (!!this.$slots['footer'] || this.footer)
       },
-      fire() {
-        this.$element.modal(options)
+      showDialog() {
+        $(this.$el).modal('show')
+      },
+      hideDialog() {
+        $(this.$el).modal('hide')
+      },
+      toogle() {
+        $(this.$el).modal('toggle')
       }
+    },
+    mounted() {
+      var component = this
+      $(this.$el).on('hidden.bs.modal', function () {
+        component.$emit('hide')
+        if (component.$events) component.$events.fire('hideDialog')
+      })
     }
   }
 </script>
