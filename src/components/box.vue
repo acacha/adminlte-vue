@@ -1,5 +1,5 @@
 <template>
-    <div class="box" :class="[{'box-solid' : isSolid}, {'collapsed-box' : isCollapsed  }, 'box-' + color]">
+    <div v-if="removed" class="box" :class="[{'box-solid' : isSolid}, {'collapsed-box' : isCollapsed  }, 'box-' + color]">
         <div class="box-header" :class="{'with-border' : borderOnHeader}">
             <div class="box-title" v-if="!noTitle">
                 <slot name="title">Put your title here using slot with name title</slot>
@@ -32,7 +32,8 @@
         isRemovable: this.removable,
         isLoading: this.loading,
         isSolid: this.solid,
-        headerHaveBorder: this.borderHeader
+        headerHaveBorder: this.borderHeader,
+        removed: false
       }
     },
     computed: {
@@ -88,6 +89,15 @@
       },
       loading: function () {
         this.isLoading= this.loading
+      },
+      removed: function () {
+        removed ? this.$emmit('removed') : this.$emmit('unremoved')
+      },
+      isCollapsed: function () {
+        isCollapsed ? this.$emmit('collapsed') : this.$emmit('expanded')
+      },
+      isLoading: function () {
+        isLoading ? this.$emmit('loading') : this.$emmit('unloaded')
       }
     },
     methods: {
@@ -109,17 +119,14 @@
       expand() {
         this.isCollapsed = false
       },
-      unExpand() {
+      unexpand() {
         this.isCollapsed = false
       },
-      toogleCollapse() {
-        this.isCollapsed = ! this.isCollapsed
-      },
-      toogleExpand() {
+      toogle() {
         this.isCollapsed = ! this.isCollapsed
       },
       remove() {
-        // TODO
+        this.removed = true
       }
     }
   }
