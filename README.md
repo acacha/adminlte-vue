@@ -39,3 +39,7 @@ See also examples folder with full code examples.
 -TODO
 
 # Resources
+
+# Test project
+
+https://github.com/acacha/adminlte-vue-test
