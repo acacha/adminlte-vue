@@ -1,5 +1,5 @@
 <template>
-    <div class="alert" :class="[{'alert-dismissible' : isDismissable}, 'alert-' + color]">
+    <div class="alert" :class="[{'alert-dismissible' : isDismissable}, 'alert-' + color]" v-if="internalVisible">
         <button v-if="isDismissable" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
         <template v-if="!noTitle">
@@ -13,7 +13,8 @@
   export default {
     data() {
       return {
-        isDismissable: this.dismissable
+        isDismissable: this.dismissable,
+        internalVisible: this.visible
       }
     },
     computed: {
@@ -41,6 +42,10 @@
           let valid = ['','success','danger', 'warning', 'info']
           return valid.includes(value)
         }
+      },
+      visible: {
+        type: Boolean,
+        default: true
       },
       title: {
         type: String,
