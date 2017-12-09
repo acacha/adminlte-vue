@@ -16,7 +16,7 @@
 
 <script>
     export default {
-      name: 'AdminLTEMessageComponent',
+      name: 'AdminlteFlashMessage',
       data() {
         return {
           visible: false,

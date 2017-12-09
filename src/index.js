@@ -23,8 +23,16 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default AdminlteVue
 
-import Box from './components/box.vue'
-import Alert from './components/alert.vue'
-import Modal from './components/modal.vue'
+import AdminlteBoxComponent from './components/AdminlteBoxComponent.vue'
+import AdminlteAlertComponent from './components/AdminlteAlertComponent.vue'
+import AdminlteModalComponent from './components/AdminlteModalComponent.vue'
+import AdminlteFlashMessageComponent from './components/AdminlteFlashMessageComponent.vue'
+import AdminlteProgressComponent from './components/AdminlteProgressComponent.vue'
 
-export { Box, Alert, Modal }
+export {
+  AdminlteBoxComponent,
+  AdminlteAlertComponent,
+  AdminlteModalComponent,
+  AdminlteFlashMessageComponent,
+  AdminlteProgressComponent
+}
