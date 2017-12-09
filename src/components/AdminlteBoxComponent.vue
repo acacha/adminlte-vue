@@ -1,5 +1,5 @@
 <template>
-    <div v-if="removed" class="box" :class="[{'box-solid' : isSolid}, {'collapsed-box' : isCollapsed  }, 'box-' + color]">
+    <div v-if="!removed" class="box" :class="[{'box-solid' : isSolid}, {'collapsed-box' : isCollapsed  }, 'box-' + color]">
         <div class="box-header" :class="{'with-border' : borderOnHeader}">
             <div class="box-title" v-if="!noTitle">
                 <slot name="title">Put your title here using slot with name title</slot>
@@ -7,7 +7,7 @@
             <div class="box-tools pull-right" v-if="!noTitle">
                 <slot name="box-tools">
                     <button v-if="isCollapsable" type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa" :class="collapseIcon"></i></button>
-                    <button v-if="isRemovable" type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button @click="remove()" v-if="isRemovable" type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </slot>
             </div>
         </div>
@@ -25,6 +25,7 @@
 
 <script>
   export default {
+    name: 'AdminLTEBox',
     data () {
       return {
         isCollapsed: this.collapsed,

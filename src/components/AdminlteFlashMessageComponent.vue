@@ -16,7 +16,7 @@
 
 <script>
     export default {
-      name: 'AdminlteFlashMessage',
+      name: 'AdminLTEFlashMessage',
       data () {
         return {
           visible: false,

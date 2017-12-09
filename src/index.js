@@ -7,6 +7,10 @@ import AdminlteModalComponent from './components/AdminlteModalComponent.vue'
 import AdminlteFlashMessageComponent from './components/AdminlteFlashMessageComponent.vue'
 import AdminlteProgressComponent from './components/AdminlteProgressComponent.vue'
 
+// Mixins
+import AlertMixin from './components/mixins/alert'
+import FlashMixin from './components/mixins/flash'
+
 let AdminlteVue = {
   todo,
   // addType,
@@ -33,5 +37,7 @@ export {
   AdminlteAlertComponent,
   AdminlteModalComponent,
   AdminlteFlashMessageComponent,
-  AdminlteProgressComponent
+  AdminlteProgressComponent,
+  AlertMixin,
+  FlashMixin
 }

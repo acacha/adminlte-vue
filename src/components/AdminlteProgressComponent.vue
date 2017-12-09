@@ -10,6 +10,7 @@
 
 <script>
   export default {
+    name: 'AdminLTEProgress',
     data () {
       return {
         currentValue: this.value

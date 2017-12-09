@@ -11,6 +11,7 @@
 
 <script>
   export default {
+    name: 'AdminLTEAlert',
     data () {
       return {
         isDismissable: this.dismissable,

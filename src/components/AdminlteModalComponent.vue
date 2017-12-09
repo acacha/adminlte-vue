@@ -24,6 +24,7 @@
 <script>
   /* global $ */
   export default {
+    name: 'AdminLTEModal',
     data () {
       return {
         isCancellable: this.cancellable,
