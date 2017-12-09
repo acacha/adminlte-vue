@@ -25,9 +25,9 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {
-        isCollapsed : this.collapsed,
+        isCollapsed: this.collapsed,
         isCollapsable: this.collapsable,
         isRemovable: this.removable,
         isLoading: this.loading,
@@ -40,9 +40,9 @@
       collapseIcon: function () {
         return this.isCollapsed ? 'fa-plus' : 'fa-minus'
       },
-      borderOnHeader: function() {
-        if (this.noTitle) return false;
-        return this.headerHaveBorder;
+      borderOnHeader: function () {
+        if (this.noTitle) return false
+        return this.headerHaveBorder
       }
     },
     props: {
@@ -74,7 +74,7 @@
         type: String,
         default: 'default',
         validator: value => {
-          let valid = ['','primary','info', 'danger', 'warning', 'success','default']
+          let valid = ['', 'primary', 'info', 'danger', 'warning', 'success', 'default']
           return valid.includes(value)
         }
       },
@@ -85,47 +85,47 @@
     },
     watch: {
       collapsed: function () {
-        this.isCollapsed= this.collapsed
+        this.isCollapsed = this.collapsed
       },
       loading: function () {
-        this.isLoading= this.loading
+        this.isLoading = this.loading
       },
       removed: function () {
-        removed ? this.$emmit('removed') : this.$emmit('unremoved')
+        this.removed ? this.$emmit('removed') : this.$emmit('unremoved')
       },
       isCollapsed: function () {
-        isCollapsed ? this.$emmit('collapsed') : this.$emmit('expanded')
+        this.isCollapsed ? this.$emmit('collapsed') : this.$emmit('expanded')
       },
       isLoading: function () {
-        isLoading ? this.$emmit('loading') : this.$emmit('unloaded')
+        this.isLoading ? this.$emmit('loading') : this.$emmit('unloaded')
       }
     },
     methods: {
-      hasFooterSlot() {
+      hasFooterSlot () {
         return !!this.$slots['footer']
       },
-      load() {
+      load () {
         this.isLoading = true
       },
-      unload() {
+      unload () {
         this.isLoading = false
       },
-      collapse() {
+      collapse () {
         this.isCollapsed = true
       },
-      uncollapse() {
+      uncollapse () {
         this.isCollapsed = false
       },
-      expand() {
+      expand () {
         this.isCollapsed = false
       },
-      unexpand() {
+      unexpand () {
         this.isCollapsed = false
       },
-      toogle() {
-        this.isCollapsed = ! this.isCollapsed
+      toogle () {
+        this.isCollapsed = !this.isCollapsed
       },
-      remove() {
+      remove () {
         this.removed = true
       }
     }

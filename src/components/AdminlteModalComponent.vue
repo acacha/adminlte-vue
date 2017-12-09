@@ -22,10 +22,11 @@
 </template>
 
 <script>
+  /* global $ */
   export default {
-    data() {
+    data () {
       return {
-        isCancellable : this.cancellable,
+        isCancellable: this.cancellable,
         isOkable: this.ok
       }
     },
@@ -34,7 +35,7 @@
         type: String,
         default: '',
         validator: value => {
-          let valid = ['','primary','info', 'danger', 'warning', 'success']
+          let valid = ['', 'primary', 'info', 'danger', 'warning', 'success']
           return valid.includes(value)
         }
       },
@@ -65,7 +66,7 @@
     },
     watch: {
       show: function (newValue) {
-        if(newValue) {
+        if (newValue) {
           this.showDialog()
         } else {
           this.hideDialog()
@@ -73,20 +74,20 @@
       }
     },
     methods: {
-      hasFooterSlot() {
+      hasFooterSlot () {
         return (!!this.$slots['footer'] || this.footer)
       },
-      showDialog() {
+      showDialog () {
         $(this.$el).modal('show')
       },
-      hideDialog() {
+      hideDialog () {
         $(this.$el).modal('hide')
       },
-      toogle() {
+      toogle () {
         $(this.$el).modal('toggle')
       }
     },
-    mounted() {
+    mounted () {
       var component = this
       $(this.$el).on('hidden.bs.modal', function () {
         component.$emit('hide')

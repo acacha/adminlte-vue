@@ -11,7 +11,7 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {
         isDismissable: this.dismissable,
         internalVisible: this.visible
@@ -19,12 +19,11 @@
     },
     computed: {
       icon: function () {
-        switch(this.color) {
+        switch (this.color) {
           case 'info':
             return 'fa-info'
           case 'success':
             return 'fa-check'
-            break;
           case 'danger':
             return 'fa-ban'
           case 'warning':
@@ -32,14 +31,14 @@
           default :
             return 'fa-info'
         }
-      },
+      }
     },
     props: {
       color: {
         type: String,
         default: 'info',
         validator: value => {
-          let valid = ['','success','danger', 'warning', 'info']
+          let valid = ['', 'success', 'danger', 'warning', 'info']
           return valid.includes(value)
         }
       },

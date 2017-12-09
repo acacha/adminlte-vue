@@ -17,37 +17,36 @@
 <script>
     export default {
       name: 'AdminlteFlashMessage',
-      data() {
+      data () {
         return {
           visible: false,
           dataMessage: this.message,
           dataTitle: this.title,
           dataColor: this.color,
           dataIcon: this.icon,
-          dataDismissible : this.dismissible,
+          dataDismissible: this.dismissible,
           dataDismissibleClass: this.dismissibleClass
         }
       },
       computed: {
-        dismissibleClass() {
-          return dataDismissible ? 'alert-dismissible' : ''
+        dismissibleClass () {
+          return this.dataDismissible ? 'alert-dismissible' : ''
         }
       },
       methods: {
-        show() {
+        show () {
           this.visible = true
-          setTimeout( () => {
+          setTimeout(() => {
             this.hide()
-          },3000)
-
+          }, 3000)
         },
-        hide(){
+        hide () {
           this.visible = false
         }
       },
       watch: {
-        message(newMessage) {
-          if (newMessage) this.show();
+        message (newMessage) {
+          if (newMessage) this.show()
         }
       },
       props: {
@@ -57,25 +56,25 @@
         'message': {
           required: false
         },
-        'color' : {
+        'color': {
           required: false,
           default: 'danger'
         },
-        'icon' : {
+        'icon': {
           required: false,
           default: 'check'
         },
-        'dismissible' : {
+        'dismissible': {
           type: Boolean,
           required: false,
           default: true
         }
       },
-      mounted() {
+      mounted () {
         window.flash = (message, title, color, icon) => {
-          this.dataTitle = title ? title : this.title
-          this.dataColor = color ? color : this.color
-          this.dataIcon = icon ? icon : this.icon
+          this.dataTitle = title || this.title
+          this.dataColor = color || this.color
+          this.dataIcon = icon || this.icon
           this.dataMessage = message
           this.show()
         }

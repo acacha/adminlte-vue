@@ -10,14 +10,14 @@
 
 <script>
   export default {
-    data() {
+    data () {
       return {
-        currentValue : this.value
+        currentValue: this.value
       }
     },
     computed: {
       percentValue: function () {
-        return (this.currentValue/this.valueMax)*100 + '%'
+        return (this.currentValue / this.valueMax) * 100 + '%'
       }
     },
     watch: {
@@ -40,12 +40,9 @@
       }
     },
     methods: {
-      todo() {
+      todo () {
         return 'todo'
       }
-    },
-    mounted() {
-      var component = this
     }
   }
 </script>

@@ -1,6 +1,11 @@
 import Components from './components/index'
 // import Filters from './filters/index';
 import {todo, todo2} from './util'
+import AdminlteBoxComponent from './components/AdminlteBoxComponent.vue'
+import AdminlteAlertComponent from './components/AdminlteAlertComponent.vue'
+import AdminlteModalComponent from './components/AdminlteModalComponent.vue'
+import AdminlteFlashMessageComponent from './components/AdminlteFlashMessageComponent.vue'
+import AdminlteProgressComponent from './components/AdminlteProgressComponent.vue'
 
 let AdminlteVue = {
   todo,
@@ -22,12 +27,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default AdminlteVue
-
-import AdminlteBoxComponent from './components/AdminlteBoxComponent.vue'
-import AdminlteAlertComponent from './components/AdminlteAlertComponent.vue'
-import AdminlteModalComponent from './components/AdminlteModalComponent.vue'
-import AdminlteFlashMessageComponent from './components/AdminlteFlashMessageComponent.vue'
-import AdminlteProgressComponent from './components/AdminlteProgressComponent.vue'
 
 export {
   AdminlteBoxComponent,
