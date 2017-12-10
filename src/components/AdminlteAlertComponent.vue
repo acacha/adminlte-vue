@@ -19,7 +19,7 @@
       }
     },
     computed: {
-      icon: function () {
+      icon () {
         switch (this.color) {
           case 'info':
             return 'fa-info'

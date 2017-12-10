@@ -17,12 +17,12 @@
       }
     },
     computed: {
-      percentValue: function () {
+      percentValue () {
         return (this.currentValue / this.valueMax) * 100 + '%'
       }
     },
     watch: {
-      'value': function (newValue) {
+      'value': (newValue) => {
         this.currentValue = newValue
       }
     },

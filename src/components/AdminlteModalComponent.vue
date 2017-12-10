@@ -66,7 +66,7 @@
       }
     },
     watch: {
-      show: function (newValue) {
+      show (newValue) {
         if (newValue) {
           this.showDialog()
         } else {
@@ -89,10 +89,9 @@
       }
     },
     mounted () {
-      var component = this
-      $(this.$el).on('hidden.bs.modal', function () {
-        component.$emit('hide')
-        if (component.$events) component.$events.fire('hideDialog')
+      $(this.$el).on('hidden.bs.modal', () => {
+        this.$emit('hide')
+        if (this.$events) this.$events.fire('hideDialog')
       })
     }
   }

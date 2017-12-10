@@ -1,64 +1,117 @@
 const webpack = require('webpack')
-
 const path = require('path')
-
 const version = require('./package.json').version
-var banner = '/**\n' + ' * Acacha adminlte-vue ' + version + '\n' + ' * https://github.com/acacha/adminlte-vue\n' + ' * Released under the MIT License.\n' + ' */\n'
+const MinifyPlugin = require('babel-minify-webpack-plugin')
+const merge = require('webpack-merge')
 
-var isProd = (process.env.NODE_ENV === 'production')
+const banner = '/**\n' + ' * Acacha adminlte-vue ' + version + '\n' + ' * https://github.com/acacha/adminlte-vue\n' + ' * Released under the MIT License.\n' + ' */\n'
 
-var outputFile = 'acacha-adminlte-vue.js'
+const isProd = (process.env.NODE_ENV === 'production')
+
+let outputFile = 'acacha-adminlte-vue.js'
+let outputFileNode = 'acacha-adminlte-vue.node.js'
 
 if (isProd) {
   outputFile = 'acacha-adminlte-vue.min.js'
+  outputFileNode = 'acacha-adminlte-vue.node.min.js'
 }
 
-module.exports = {
-  entry: './src/index.js',
+function getPlugins () {
+  const plugins = []
+
+  plugins.push(new webpack.DefinePlugin({
+    'process.env': {
+      'NODE_ENV': process.env.NODE_ENV
+    }
+  }))
+
+  plugins.push(new webpack.BannerPlugin({banner: banner, raw: true}))
+
+  // Conditionally add plugins for Production builds.
+  if (isProd) {
+    plugins.push(new MinifyPlugin())
+  }
+
+  return plugins
+}
+
+const shared = merge([
+  {
+    entry: './src/index.js',
+    plugins: getPlugins(),
+    module: {
+      rules: [{
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.vue?$/,
+          exclude: /node_modules/,
+          loader: 'vue-loader'
+        }
+      ]
+    }
+  }
+])
+
+const umdOnly = {
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: outputFile,
     libraryTarget: 'umd',
     library: 'AcachaAdminlteVue',
     umdNamedDefine: true
-  },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: false,
-      mangle: false
-    }),
-    new webpack.BannerPlugin({banner: banner, raw: true})
-  ],
-  externals: {
-    'axios': {
-      commonjs: 'axios',
-      commonjs2: 'axios',
-      amd: 'axios',
-      root: 'axios'
-    }
-  },
-  module: {
-    rules: [{
-      enforce: 'pre',
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'eslint-loader'
-    },
-    {
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    },
-    {
-      test: /\.vue?$/,
-      exclude: /node_modules/,
-      loader: 'vue-loader'
-    }
-    ]
   }
 }
+
+const umd = merge(shared, umdOnly)
+
+// const umd = {
+//   entry: './src/index.js',
+//   output: {
+//     path: path.resolve(__dirname, './dist'),
+//     filename: outputFile,
+//     libraryTarget: 'umd',
+//     library: 'AcachaAdminlteVue',
+//     umdNamedDefine: true
+//   },
+//   plugins: getPlugins(),
+//   module: {
+//     rules: [{
+//       enforce: 'pre',
+//       test: /\.js$/,
+//       exclude: /node_modules/,
+//       loader: 'eslint-loader'
+//     },
+//     {
+//       test: /\.js$/,
+//       exclude: /node_modules/,
+//       loader: 'babel-loader'
+//     },
+//     {
+//       test: /\.vue?$/,
+//       exclude: /node_modules/,
+//       loader: 'vue-loader'
+//     }
+//     ]
+//   }
+// }
+
+const nodeOnly = {
+  target: 'node',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    filename: outputFileNode
+  }
+}
+
+const node = merge(shared, nodeOnly)
+
+module.exports = [umd, node]

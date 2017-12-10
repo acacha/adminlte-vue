@@ -2,13 +2,20 @@
   "name": "adminlte-vue",
   "version": "0.1.3",
   "description": "Vue components for Bootstrap adminlte template",
-  "main": "src/index.js",
+  "main": "dist/acacha-adminlte-vue.js",
+  "module": "dist/acacha-adminlte-vue.esm.js",
+  "unpkg": "dist/acacha-adminlte-vue.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.vue src/",
     "lint-examples": "eslint --ext .js,.vue examples/index.js",
-    "build": "cross-env NODE_ENV=production webpack -p --progress --colors",
-    "dev": "cross-env NODE_ENV=development webpack --progress --colors --watch"
+    "build": "cross-env NODE_ENV=production webpack --progress --colors",
+    "build-common": "cross-env NODE_ENV=production webpack --target='common' --progress --colors",
+    "build-node": "cross-env NODE_ENV=production webpack --target='node' --progress --colors",
+    "dev": "cross-env NODE_ENV=development webpack --progress --colors --watch",
+    "common": "cross-env NODE_ENV=development webpack --progress --colors",
+    "all": "rimraf dist && npm run common && npm run build",
+    "prepublish": "npm run all"
   },
   "repository": {
     "type": "git",
@@ -25,12 +32,16 @@
   },
   "homepage": "https://github.com/acacha/adminlte-vue#readme",
   "devDependencies": {
-    "babel-cli": "^6.23.0",
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.0.3",
-    "babel-loader": "^6.4.1",
+    "babel-loader": "^7.1.2",
+    "babel-minify-webpack-plugin": "^0.2.0",
     "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-env": "^1.5.1",
-    "cross-env": "^4.0.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babili-webpack-plugin": "^0.1.2",
+    "cross-env": "^5.1.1",
+    "css-loader": "^0.28.7",
     "eslint": "^4.13.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-friendly-formatter": "^3.0.0",
@@ -42,15 +53,16 @@
     "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^2.1.0",
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.3.1",
-    "vue-events": "^3.1.0",
-    "webpack": "^2.3.3"
+    "rimraf": "^2.6.2",
+    "vue-hot-reload-api": "^2.2.4",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^13.5.0",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.5.9",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "css-loader": "^0.28.3",
-    "vue-hot-reload-api": "^2.1.0",
-    "vue-html-loader": "^1.2.4",
-    "vue-loader": "^12.1.1",
-    "vue-style-loader": "^3.0.1",
-    "vue-template-compiler": "^2.3.3"
+    "vue-events": "^3.1.0"
   }
 }

@@ -38,10 +38,10 @@
       }
     },
     computed: {
-      collapseIcon: function () {
+      collapseIcon () {
         return this.isCollapsed ? 'fa-plus' : 'fa-minus'
       },
-      borderOnHeader: function () {
+      borderOnHeader () {
         if (this.noTitle) return false
         return this.headerHaveBorder
       }
@@ -85,19 +85,19 @@
       }
     },
     watch: {
-      collapsed: function () {
+      collapsed () {
         this.isCollapsed = this.collapsed
       },
-      loading: function () {
+      loading () {
         this.isLoading = this.loading
       },
-      removed: function () {
+      removed () {
         this.removed ? this.$emmit('removed') : this.$emmit('unremoved')
       },
-      isCollapsed: function () {
+      isCollapsed () {
         this.isCollapsed ? this.$emmit('collapsed') : this.$emmit('expanded')
       },
-      isLoading: function () {
+      isLoading () {
         this.isLoading ? this.$emmit('loading') : this.$emmit('unloaded')
       }
     },
