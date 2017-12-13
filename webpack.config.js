@@ -46,16 +46,16 @@ const shared = merge([
         exclude: /node_modules/,
         loader: 'eslint-loader'
       },
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loader: 'babel-loader'
-        },
-        {
-          test: /\.vue?$/,
-          exclude: /node_modules/,
-          loader: 'vue-loader'
-        }
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.vue?$/,
+        exclude: /node_modules/,
+        loader: 'vue-loader'
+      }
       ]
     }
   }
@@ -72,37 +72,6 @@ const umdOnly = {
 }
 
 const umd = merge(shared, umdOnly)
-
-// const umd = {
-//   entry: './src/index.js',
-//   output: {
-//     path: path.resolve(__dirname, './dist'),
-//     filename: outputFile,
-//     libraryTarget: 'umd',
-//     library: 'AcachaAdminlteVue',
-//     umdNamedDefine: true
-//   },
-//   plugins: getPlugins(),
-//   module: {
-//     rules: [{
-//       enforce: 'pre',
-//       test: /\.js$/,
-//       exclude: /node_modules/,
-//       loader: 'eslint-loader'
-//     },
-//     {
-//       test: /\.js$/,
-//       exclude: /node_modules/,
-//       loader: 'babel-loader'
-//     },
-//     {
-//       test: /\.vue?$/,
-//       exclude: /node_modules/,
-//       loader: 'vue-loader'
-//     }
-//     ]
-//   }
-// }
 
 const nodeOnly = {
   target: 'node',
