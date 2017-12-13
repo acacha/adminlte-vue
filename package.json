@@ -9,13 +9,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.vue src/",
     "lint-examples": "eslint --ext .js,.vue examples/index.js",
-    "build": "cross-env NODE_ENV=production webpack --progress --colors",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --progress --colors",
     "build-common": "cross-env NODE_ENV=production webpack --target='common' --progress --colors",
     "build-node": "cross-env NODE_ENV=production webpack --target='node' --progress --colors",
     "dev": "cross-env NODE_ENV=development webpack --progress --colors --watch",
-    "common": "cross-env NODE_ENV=development webpack --progress --colors",
-    "all": "rimraf dist && npm run common && npm run build",
-    "prepublish": "npm run all"
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -39,7 +37,6 @@
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
-    "babili-webpack-plugin": "^0.1.2",
     "cross-env": "^5.1.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.13.0",
