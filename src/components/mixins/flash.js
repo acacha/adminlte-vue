@@ -8,10 +8,10 @@ export default {
       }
     },
     success (message) {
-      this.flash(message,'Done!','success','check')
+      this.flash(message, 'Done!', 'success', 'check')
     },
-    error () {
-      this.flash(message,'Error!','danger','ban')
+    error (message) {
+      this.flash(message, 'Error!', 'danger', 'ban')
     }
   }
 }
