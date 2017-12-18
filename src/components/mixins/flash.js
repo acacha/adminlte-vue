@@ -1,4 +1,7 @@
+import AlertMixin from './alert'
+
 export default {
+  mixins: [AlertMixin],
   methods: {
     flash (message, title, color, icon) {
       if (typeof window.flash === 'function') {
@@ -8,10 +11,10 @@ export default {
       }
     },
     success (message) {
-      this.flash(message, 'Done!', 'success', 'check')
+      this.flash(message, 'Done!', 'success', 'fa-check')
     },
     error (message) {
-      this.flash(message, 'Error!', 'danger', 'ban')
+      this.flash(message, 'Error!', 'danger', 'fa-ban')
     }
   }
 }

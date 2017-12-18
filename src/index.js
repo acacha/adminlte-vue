@@ -10,6 +10,7 @@ import AdminlteProgressComponent from './components/AdminlteProgressComponent.vu
 // Mixins
 import AlertMixin from './components/mixins/alert'
 import FlashMixin from './components/mixins/flash'
+import DisabledSubmitMixin from './components/mixins/disabledSubmitButton'
 
 let AdminlteVue = {
   todo,
@@ -39,5 +40,6 @@ export {
   AdminlteFlashMessageComponent,
   AdminlteProgressComponent,
   AlertMixin,
-  FlashMixin
+  FlashMixin,
+  DisabledSubmitMixin
 }

@@ -53,11 +53,12 @@
     "eslint-plugin-vue": "^2.1.0",
     "eslint-plugin-you-dont-need-lodash-underscore": "^6.3.1",
     "rimraf": "^2.6.2",
+    "vue": "^2.5.11",
     "vue-hot-reload-api": "^2.2.4",
     "vue-html-loader": "^1.2.4",
     "vue-loader": "^13.5.0",
     "vue-style-loader": "^3.0.3",
-    "vue-template-compiler": "^2.5.9",
+    "vue-template-compiler": "^2.5.11",
     "webpack": "^3.10.0",
     "webpack-merge": "^4.1.1"
   },
