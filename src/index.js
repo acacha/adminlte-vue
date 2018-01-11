@@ -6,6 +6,7 @@ import AdminlteAlertComponent from './components/AdminlteAlertComponent.vue'
 import AdminlteModalComponent from './components/AdminlteModalComponent.vue'
 import AdminlteFlashMessageComponent from './components/AdminlteFlashMessageComponent.vue'
 import AdminlteProgressComponent from './components/AdminlteProgressComponent.vue'
+import AdminlteCrudListComponent from './components/AdminlteCrudListComponent.vue'
 
 // Mixins
 import AlertMixin from './components/mixins/alert'
@@ -39,6 +40,7 @@ export {
   AdminlteModalComponent,
   AdminlteFlashMessageComponent,
   AdminlteProgressComponent,
+  AdminlteCrudListComponent,
   AlertMixin,
   FlashMixin,
   DisabledSubmitMixin
